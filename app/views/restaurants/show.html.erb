@@ -1,0 +1,19 @@
+<h1> <%= @restaurant.name %></h1>
+
+<h3>Located a <%= @restaurant.address %></h3>
+<span class='badge badge-primary'><%= @restaurant.category.capitalize %></span>
+
+<p>Contact : <%= @restaurant.phone_number %></p>
+
+<p>View reviews</p>
+
+<ul class="list-group list-group-flush">
+  <% @restaurant.reviews.each do |review| %>
+    <li><%= review.content%></li>
+  <% end %>
+</ul>
+
+<br>
+
+<%= link_to "Back to restaurants", restaurants_path, class:'btn btn-danger'%>
+<%= link_to "Add a review", new_restaurant_review_path(@restaurant), class:'btn btn-primary'%>
